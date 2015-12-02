@@ -46,6 +46,8 @@ ADD CONSTRAINT construction_ibfk_2 FOREIGN KEY(territory_id) REFERENCES `territo
   CHANGE COLUMN pin_code pin_code varchar(6) NOT NULL DEFAULT '000000' AFTER is_locked;
 
 
+DELETE c.* FROM  `container` c LEFT JOIN  `account` a ON a.uid = c.account_uid WHERE a.uid IS NULL;
+
 ALTER TABLE `container`
   DROP COLUMN last_accessed;
 ALTER TABLE `container`
@@ -72,7 +74,7 @@ ADD CONSTRAINT container_ibfk_2 FOREIGN KEY(territory_id) REFERENCES `territory`
   CHANGE COLUMN up_z up_z double NOT NULL DEFAULT '1' AFTER up_y;
 
 
-delete p.* FROM `player` p LEFT JOIN `account` a on a.uid = p.account_uid WHERE a.uid IS NULL;
+DELETE p.* FROM `player` p LEFT JOIN `account` a on a.uid = p.account_uid WHERE a.uid IS NULL;
 
 ALTER TABLE `player`
   DROP COLUMN hitpoint_head, 
