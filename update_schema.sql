@@ -147,6 +147,15 @@ ADD CONSTRAINT vehicle_ibfk_1 FOREIGN KEY(account_uid) REFERENCES `account`(uid)
   CHANGE COLUMN pin_code pin_code varchar(6) NOT NULL DEFAULT '000000';
 
 
+CREATE TABLE `player_history` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `account_uid` varchar(32) NOT NULL,
+  `name` varchar(64) NOT NULL,
+  `died_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `position_x` double NOT NULL,
+  `position_y` double NOT NULL,
+  `position_z` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 UPDATE
     `construction` c
