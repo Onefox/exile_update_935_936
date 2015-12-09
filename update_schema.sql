@@ -172,7 +172,7 @@ AND ABS( t.position_y - c.position_y ) < t.radius
 SET
     c.territory_id = t.id;
 
-
+UPDATE territory SET flag_texture = REPLACE (flag_texture, 'exile_client', 'exile_assets') WHERE flag_texture LIKE '%exile_client%';
 
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
