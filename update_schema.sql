@@ -353,7 +353,7 @@ SET
     c.territory_id = t.id;
 
 UPDATE territory SET flag_texture = REPLACE (flag_texture, 'exile_client', 'exile_assets') WHERE flag_texture LIKE '%exile_client%';
-
+DELETE FROM player WHERE damage = 1;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
